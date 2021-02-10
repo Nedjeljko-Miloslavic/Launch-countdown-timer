@@ -1,0 +1,382 @@
+*{
+	box-sizing:border-box;
+}
+
+:root{
+	--grayish_blue: hsl(237, 18%, 59%);
+	--soft_red: hsl(345, 95%, 68%);
+	--desaturated_blue: hsl(236, 21%, 26%);
+	--dark_blue: hsl(236, 21%, 21%);
+	--black_blue: hsl(234, 17%, 12%);
+}
+
+html{
+	font-family:'Red Hat Text', sans-serif;
+	background-image:url(images/bg-stars.svg);
+	background-color:var(--black_blue);
+
+}
+
+body{
+	margin:0;
+	background-image:url(images/pattern-hills.svg);
+	height:100vh;
+	background-repeat:no-repeat;
+	background-position:bottom;
+	background-size:100%;
+	padding-top:100px;
+}
+
+h2{
+	width:500px;
+	margin:auto;
+	text-align:center;
+	color:white;
+	letter-spacing:6px;
+	text-transform:uppercase;
+	font-size:20px;
+}
+
+#flex_container{
+	width:600px;
+	height:200px;
+	display:flex;
+	margin:auto;
+	flex-direction:row;
+	justify-content:space-between;
+	margin-top:70px;
+}
+
+.card{
+	width:21%;
+	height:100%;
+	color:var(--soft_red);
+}
+
+.upper{
+	height:30%;
+	background-color:var(--dark_blue);
+	font-size:80px;
+	text-align:center;	
+	overflow:hidden;
+	border-radius:5px;
+}
+
+.upper .circle_1, .upper .circle_2{
+	height:12px;
+	width:12px;
+	border-radius:6px;
+	background-color:var(--black_blue);
+	
+	position:relative;
+	
+}
+
+.upper .circle_1{
+	bottom:50px;
+	left:-6px;
+}
+
+.upper .circle_2{
+	bottom:70px;
+	left:90%;
+}
+
+
+
+
+.upper span{
+	position:relative;
+	top:10%;
+}
+
+
+
+.lower{
+	height:30%;
+	font-size:80px;
+	text-align:center;
+	
+}
+
+.lower .below{
+	height:100%;
+	overflow:hidden;
+	background-color:var(--desaturated_blue);
+}
+
+.lower .up::after{
+	content:"";
+	display:block;
+	height:10px;
+	width:10px;
+	background-color:red;
+	position:relative;
+	bottom:40px;
+}
+
+.lower .below span{
+	position:relative;
+	bottom:90%;
+}
+
+.lower .up{
+	background-color:var(--desaturated_blue);
+	position:relative;
+	bottom:100%;
+	height:100%;
+	transform-origin:top;
+	overflow:hidden;
+}
+
+.lower .up div span{
+	position:relative;
+	bottom:90%;
+}
+
+.lower .up div{
+	height:100%;
+	position:relative;
+}
+
+
+	
+
+
+
+
+
+/*------------------------ANIMATIONS-----------------------*/
+
+
+.card:nth-of-type(4) .lower .up{
+	animation: rotation 1s linear 0s infinite,
+	change_color 1s linear 0s infinite;
+}
+	
+.card:nth-of-type(4) .lower .up div{
+	animation:rotate_span 1s linear 0s infinite;
+}
+	
+.card:nth-of-type(4) .lower .up div span{
+	animation: move_span 1s linear 0s infinite;
+}
+
+
+/*minutes*/
+.card:nth-of-type(3) .lower .up{
+	animation: rotation_minutes 60s linear -59s infinite,
+	change_color_minutes 60s linear -59s infinite;
+}
+	
+.card:nth-of-type(3) .lower .up div{
+	animation:rotate_span_minutes 60s linear -59s infinite;
+}
+	
+.card:nth-of-type(3) .lower .up div span{
+	animation: move_span_minutes 60s linear -59s infinite;
+}
+
+
+
+/*hours*/
+.card:nth-of-type(2) .lower .up{
+	animation: rotation_hours 3600s linear -3598.5s infinite,
+	change_color_hours 3600s linear -3598.5s infinite;
+}
+	
+.card:nth-of-type(2) .lower .up div{
+	animation:rotate_span_hours 3600s linear -3598.5s infinite;
+}
+	
+.card:nth-of-type(2) .lower .up div span{
+	animation: move_span_hours 3600s linear -3598.5s infinite;
+}
+
+
+
+/*days*/
+.card:nth-of-type(1) .lower .up{
+	animation: rotation_days 86400s linear -86399s infinite,
+	change_color_days 86400s linear -86399s infinite;
+}
+	
+.card:nth-of-type(1) .lower .up div{
+	animation:rotate_span_days 86400s linear -86399s infinite;
+}
+	
+.card:nth-of-type(1) .lower .up div span{
+	animation: move_span_days 86400s linear -86399s infinite;
+}
+
+
+
+
+
+/*---------------------------------SECONDS-------------------*/
+@keyframes change_color{
+	0%{background-color:var(--desaturated_blue);}
+	100%{background-color:var(--dark_blue);}
+}
+
+@keyframes rotation{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes rotate_span{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	49%{transform:rotate3D(1,0,0,0deg);}
+	51%{transform:rotate3D(1,0,0,180deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes move_span{
+	0%{bottom:90%;}
+	49%{bottom:90%;}
+	51%{bottom:-10%;}
+	100%{bottom:-10%;}
+}
+
+
+
+/*-------------------------------------MINUTES------------------*/
+
+@keyframes change_color_minutes{
+	0%{background-color:var(--desaturated_blue);}
+	98%{background-color:var(--desaturated_blue);}
+	100%{background-color:var(--dark_blue);}
+}
+
+@keyframes rotation_minutes{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	98%{transform:rotate3D(1,0,0,0deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes rotate_span_minutes{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	98.9%{transform:rotate3D(1,0,0,0deg);}
+	99.1%{transform:rotate3D(1,0,0,180deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes move_span_minutes{
+	0%{bottom:90%;}
+	98.9%{bottom:90%;}
+	99.1%{bottom:-10%;}
+	100%{bottom:-10%;}
+}
+
+
+/*------------------HOURS-----------------------*/
+@keyframes change_color_hours{
+	0%{background-color:var(--desaturated_blue);}
+	99.96%{background-color:var(--desaturated_blue);}
+	100%{background-color:var(--dark_blue);}
+}
+
+@keyframes rotation_hours{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	99.96%{transform:rotate3D(1,0,0,0deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes rotate_span_hours{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	99.98%{transform:rotate3D(1,0,0,0deg);}
+	99.981%{transform:rotate3D(1,0,0,180deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes move_span_hours{
+	0%{bottom:90%;}
+	99.98%{bottom:90%;}
+	99.981%{bottom:-10%;}
+	100%{bottom:-10%;}
+}
+
+
+
+
+/*--------------------DAYS---------------------*/
+
+@keyframes change_color_days{
+	0%{background-color:var(--desaturated_blue);}
+	99.999%{background-color:var(--desaturated_blue);}
+	100%{background-color:var(--dark_blue);}
+}
+
+@keyframes rotation_days{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	99.999%{transform:rotate3D(1,0,0,0deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes rotate_span_days{
+	0%{transform:rotate3D(1,0,0,0deg);}
+	99.9995%{transform:rotate3D(1,0,0,0deg);}
+	99.99951%{transform:rotate3D(1,0,0,180deg);}
+	100%{transform:rotate3D(1,0,0,180deg);}
+}
+
+@keyframes move_span_days{
+	0%{bottom:90%;}
+	99.9995%{bottom:90%;}
+	99.99951%{bottom:-10%;}
+	100%{bottom:-10%;}
+}
+
+
+
+
+
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+/*
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Grayish blue: hsl(237, 18%, 59%)
+- Soft red: hsl(345, 95%, 68%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Dark desaturated blue: hsl(236, 21%, 26%)
+- Very dark blue: hsl(235, 16%, 14%)
+- Very dark (mostly black) blue: hsl(234, 17%, 12%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 14px
+
+### Font
+
+- Family: [Red Hat Text](https://fonts.google.com/specimen/Red+Hat+Text)
+- Weights: 700
+
+## Icons
+
+We provide the required social icons. But, if you prefer, you can use a font icon library. Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com)
+*/
