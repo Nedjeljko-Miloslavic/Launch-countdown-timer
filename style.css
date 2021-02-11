@@ -14,7 +14,6 @@ html{
 	font-family:'Red Hat Text', sans-serif;
 	background-image:url(images/bg-stars.svg);
 	background-color:var(--black_blue);
-
 }
 
 body{
@@ -59,35 +58,15 @@ h2{
 	font-size:80px;
 	text-align:center;	
 	overflow:hidden;
-	border-radius:5px;
-}
-
-.upper .circle_1, .upper .circle_2{
-	height:12px;
-	width:12px;
 	border-radius:6px;
-	background-color:var(--black_blue);
-	
-	position:relative;
-	
+	box-shadow:inset 0 1px 5px rgba(0,0,0,0.4);
 }
-
-.upper .circle_1{
-	bottom:50px;
-	left:-6px;
-}
-
-.upper .circle_2{
-	bottom:70px;
-	left:90%;
-}
-
 
 
 
 .upper span{
 	position:relative;
-	top:10%;
+	top:-4px;
 }
 
 
@@ -96,28 +75,15 @@ h2{
 	height:30%;
 	font-size:80px;
 	text-align:center;
-	
+	border-radius:6px;
+	box-shadow:0px 10px rgba(0,0,0,0.4);
 }
 
 .lower .below{
 	height:100%;
 	overflow:hidden;
 	background-color:var(--desaturated_blue);
-}
-
-.lower .up::after{
-	content:"";
-	display:block;
-	height:10px;
-	width:10px;
-	background-color:red;
-	position:relative;
-	bottom:40px;
-}
-
-.lower .below span{
-	position:relative;
-	bottom:90%;
+	border-radius:6px;
 }
 
 .lower .up{
@@ -127,11 +93,97 @@ h2{
 	height:100%;
 	transform-origin:top;
 	overflow:hidden;
+	border-radius:6px;
+	box-shadow:inset 0 -1px 5px rgba(0,0,0,0.4);
 }
+
+.upper::after{
+	content:"";
+	display:block;
+	height:10px;
+	width:14px;
+	background-color:var(--black_blue);
+	border-radius:7px;
+	position:relative;
+	bottom:62px;
+	left:-7px;
+}
+
+.upper::before{
+	content:"";
+	display:block;
+	height:10px;
+	width:14px;
+	background-color:var(--black_blue);
+	border-radius:7px;
+	position:relative;
+	top:53px;
+	left:118px;
+}
+
+.lower .up::before{
+	content:"";
+	display:block;
+	height:10px;
+	width:14px;
+	background-color:var(--black_blue);
+	border-radius:7px;
+	position:relative;
+	left:118px;
+	bottom:3px;
+}
+
+.lower .up::after{
+	content:"";
+	display:block;
+	height:10px;
+	width:14px;
+	background-color:var(--black_blue);
+	position:relative;
+	bottom:73px;
+	left:-7px;
+	border-radius:7px;
+}
+
+
+
+
+.lower .below::after{
+	content:"";
+	display:block;
+	height:10px;
+	width:14px;
+	background-color:var(--black_blue);
+	position:relative;
+	bottom:118px;
+	left:-7px;
+	border-radius:7px;
+	overflow:visible;
+}
+
+.lower .below::before{
+	overflow:visible;
+	content:"";
+	display:table-cell;
+	height:10px;
+	width:14px;
+	background-color:var(--black_blue);
+	border-radius:7px;
+	position:relative;
+	left:118px;
+	top:-3px;
+}
+
+.lower .below span{
+	position:relative;
+	bottom:64px;
+}
+
+
 
 .lower .up div span{
 	position:relative;
-	bottom:90%;
+	bottom:64px;
 }
 
 .lower .up div{
@@ -140,13 +192,41 @@ h2{
 }
 
 
-	
+.text{
+	text-transform:uppercase;
+	color:var(--grayish_blue);
+	margin-top:20px;
+	text-align:center;
+	font-size:11px;
+	letter-spacing:4px;
+}
+
+#socials{
+	display:flex;
+	width:100px;
+	margin:auto;
+	justify-content:space-between;
+	margin-top:140px;
+	margin-bottom:20px;
+}
+
+#socials div img:nth-child(2){
+	position:relative;
+	bottom:29px;
+	visibility:hidden;
+}
+
+#socials div:hover img:nth-child(2){
+	cursor:pointer;
+	visibility:visible;
+}
 
 
 
 
 
 /*------------------------ANIMATIONS-----------------------*/
+
 
 
 .card:nth-of-type(4) .lower .up{
@@ -163,7 +243,7 @@ h2{
 }
 
 
-/*minutes*/
+
 .card:nth-of-type(3) .lower .up{
 	animation: rotation_minutes 60s linear -59s infinite,
 	change_color_minutes 60s linear -59s infinite;
@@ -179,7 +259,7 @@ h2{
 
 
 
-/*hours*/
+
 .card:nth-of-type(2) .lower .up{
 	animation: rotation_hours 3600s linear -3598.5s infinite,
 	change_color_hours 3600s linear -3598.5s infinite;
@@ -195,7 +275,7 @@ h2{
 
 
 
-/*days*/
+
 .card:nth-of-type(1) .lower .up{
 	animation: rotation_days 86400s linear -86399s infinite,
 	change_color_days 86400s linear -86399s infinite;
@@ -232,10 +312,10 @@ h2{
 }
 
 @keyframes move_span{
-	0%{bottom:90%;}
-	49%{bottom:90%;}
-	51%{bottom:-10%;}
-	100%{bottom:-10%;}
+	0%{bottom:64px;}
+	49%{bottom:64px;}
+	51%{bottom:-16px;}
+	100%{bottom:-16px;}
 }
 
 
@@ -262,10 +342,10 @@ h2{
 }
 
 @keyframes move_span_minutes{
-	0%{bottom:90%;}
-	98.9%{bottom:90%;}
-	99.1%{bottom:-10%;}
-	100%{bottom:-10%;}
+	0%{bottom:64px;}
+	98.9%{bottom:64px;}
+	99.1%{bottom:-16px;}
+	100%{bottom:-16px;}
 }
 
 
@@ -290,10 +370,10 @@ h2{
 }
 
 @keyframes move_span_hours{
-	0%{bottom:90%;}
-	99.98%{bottom:90%;}
-	99.981%{bottom:-10%;}
-	100%{bottom:-10%;}
+	0%{bottom:64px;}
+	99.98%{bottom:64px;}
+	99.981%{bottom:-16px;}
+	100%{bottom:-16px;}
 }
 
 
@@ -321,10 +401,10 @@ h2{
 }
 
 @keyframes move_span_days{
-	0%{bottom:90%;}
-	99.9995%{bottom:90%;}
-	99.99951%{bottom:-10%;}
-	100%{bottom:-10%;}
+	0%{bottom:64px;}
+	99.9995%{bottom:64px;}
+	99.99951%{bottom:-16px;}
+	100%{bottom:-16px;}
 }
 
 

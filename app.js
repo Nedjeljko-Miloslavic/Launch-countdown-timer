@@ -10,7 +10,7 @@ for(let i=0; i<4; i++){
 	up_span[i].innerHTML = up_span_num[i];
 	upper_span[i].innerHTML = up_span_num[i];
 	if(up_span_num>0){
-		below_span[i].innerHTML = up_span_num[i] -1;
+		below_span[i].innerHTML = up_span_num[i] -1; 
 	}else if(i!=1){
 		below_span[i].innerHTML = 59;
 	}else{
@@ -49,7 +49,7 @@ function change_numbers(){
 	
 	for(let i=0; i<4; i++){
 		if(check_up[i]){
-			if(bottom_array[i]<53){
+			if(bottom_array[i]<64){
 				if(up_span_num[i]>0){
 					up_span_num[i] --;
 				}else if(i!=1){
@@ -63,7 +63,7 @@ function change_numbers(){
 			}
 		}
 		
-		if(bottom_array[i] == 54){
+		if(bottom_array[i] == 64){
 			check_up[i] = true;
 		}
 		
